@@ -17,7 +17,7 @@ page 50100 Projects
                 {
                     ToolTip = 'Specifies the value of the SystemId field.';
                 }
-                field(Id; Rec.Id)
+                field(Id; Rec.SystemId)
                 {
                     ToolTip = 'Specifies the value of the Id field.';
                 }

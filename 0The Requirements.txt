@@ -1,0 +1,28 @@
+Goal: Consultants should be able to register their own working hours using BC 365 webclient, using MAUI
+
+Info: There already is a Employee card to register consultants
+Info: Should each consultants also have a User? And what role should they have?
+
+Req: ER Diagram of Database - Create Estimate and hand it to Frank
+Req: Discuss and prioritise the most important features. Must Have, Should Have
+Req: Need to be able to choose a project
+Req: Register hours worked(new table for this)
+Req: Auto register employee No.
+Req: User can only choose assigned projects
+Req: New page to create projects with: 
+- project name
+- number of total estimated hours
+- number of hours remained
+- used number of hours
+- assigned consultant
+Req: Use a No. Series
+Req: Needs to be able to close the projects:
+- Post them, move them to the "posted projects" table and delete them from the projects table
+Req: On employee card a new action must offer option to access employess time registrations
+Req: Each night: 
+- a scheduled job must post the time registrations 
+- and run a validation job and mail a list of all projects which has negative number of hours remaining, 
+- receiver is controlled by email scenario
+
+Tables:
+Employee - Active Projects - Closed Projects - Consultants - Time Management - ??
