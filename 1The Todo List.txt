@@ -8,3 +8,5 @@ Niels work on:
 Niels work on: 
 
 - Finished Requirements:
+ER Diagram - DONE(Placed in project)
+Time Estimation - DONE(Sent to Frank)
