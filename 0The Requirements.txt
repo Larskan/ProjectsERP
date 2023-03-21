@@ -24,9 +24,6 @@ Req: Each night:
 - and run a validation job and mail a list of all projects which has negative number of hours remaining, 
 - receiver is controlled by email scenario
 
-Tables:
-Employee - Active Projects - Closed Projects - Consultants - Time Management - ??
-
 features and Time Estimate: 114 or 38h
 1) No. Series(Employee, Project, Tasks, the IDs) - 2.5H
 2) Setup Tables, check ER, REMEMBER KEYS - 2.5H
@@ -51,8 +48,7 @@ Codeunit for user to register time, pause time and finish time for tasks
 Maui: 3 views: Projects -> Tasks -> the pomodoro within a task
 
 Frank Spørgsmål:
-- Report eller ej? 5)
+- Report eller ej? 5) - Op til os
 - Connection
-- Kan man bruge enum i AL?
-- App timer?
-- Kan flere users arbejde på samme task?
+- Kan man bruge enum i AL? - Ja, sections er eksempler
+- Kan flere users arbejde på samme task? - Vi blev enige om at 1 user på en task
