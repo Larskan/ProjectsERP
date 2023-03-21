@@ -27,11 +27,32 @@ Req: Each night:
 Tables:
 Employee - Active Projects - Closed Projects - Consultants - Time Management - ??
 
-Lars opinion on most important features:
-1) Employee Card option to access time registrations 
-2) See hours worked for each individual consultant in the Project Administration
-3) User can only choose the projects where they are allowed
-4) Create new Project and assign users
-5) Close and archive a project
-6) No. Series
-7) scheduled job to run validation and mail list
+features and Time Estimate: 114 or 38h
+1) No. Series(Employee, Project, Tasks, the IDs) - 2.5H
+2) Setup Tables, check ER, REMEMBER KEYS - 2.5H
+3) Setup Admins Page with all his settings(Create Project, assign users, close projects, create tasks+test) - 10H
+4) Employee can see their accessed projects with tasks with time registrations - 2H
+5) See hours worked for each individual consultant in the Project Administration, refresh button, OnOpen(), report(search) - 7.5H(Report), 2.5H(Uden report)
+6) scheduled job to run validation and mail list - 6H
+7) Admin can see which employee is doing which task(flag, igang: true, pause: false) - 2H
+
+MAUI
+- Fra 3) 
+a) Håndtere JSON
+b) Setup MVVM without function, some test: LoginView, UserView, ProjectView, TaskView has time - 2H
+c) Login Codeunit and JSON MAUI(Messagecenters, Token) - 2H + 10H
+d) User Codeunit/Coding and JSON MAUI(coding, ) - 5H + 7H
+e) Project Codeunit/Lists/bindings and JSON MAUI - 5H + 7H
+f) Task Codeunit/Lists/Refresh and JSON MAUI - 3H + 0H
+g) Timer 3x Codeunit(minutes) and JSON with 3(flag) - 6H + 7H
+
+Codeunit for admins to make tasks, make projects, delegate tasks to employees.
+Codeunit for user to register time, pause time and finish time for tasks
+Maui: 3 views: Projects -> Tasks -> the pomodoro within a task
+
+Frank Spørgsmål:
+- Report eller ej? 5)
+- Connection
+- Kan man bruge enum i AL?
+- App timer?
+- Kan flere users arbejde på samme task?
