@@ -28,10 +28,10 @@ Tables:
 Employee - Active Projects - Closed Projects - Consultants - Time Management - ??
 
 Lars opinion on most important features:
-1) See hours worked for each individual consultant in the Project Administration
-2) User can only choose the projects where they are allowed
-3) Create new Project and assign users
-4) Close and archive a project
-5) Employee Card option to access time registrations
+1) Employee Card option to access time registrations 
+2) See hours worked for each individual consultant in the Project Administration
+3) User can only choose the projects where they are allowed
+4) Create new Project and assign users
+5) Close and archive a project
 6) No. Series
 7) scheduled job to run validation and mail list
