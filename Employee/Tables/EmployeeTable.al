@@ -1,4 +1,4 @@
-table 50105 EmployeeTable
+table 50119 EmployeeTable
 {
     Caption = 'EmployeeTable';
     DataClassification = ToBeClassified;

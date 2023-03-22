@@ -1,4 +1,4 @@
-page 50100 ProjectsPage
+page 50110 ProjectsPage
 {
     ApplicationArea = All;
     Caption = 'Projects';

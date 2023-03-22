@@ -1,4 +1,4 @@
-table 50102 Tasks
+table 50116 Tasks
 {
     Caption = 'Tasks';
     DataClassification = ToBeClassified;
@@ -35,8 +35,12 @@ table 50102 Tasks
     {
         key(PK; TaskID)
         {
-            //Add foreign key to ProjectID
             Clustered = true;
+        }
+        key(FK1; ProjectID)
+        {
+            //ProjectID FK
+            //IncludedFields = ProjectID;
         }
     }
 }

@@ -1,4 +1,4 @@
-pageextension 50120 ExtendNavigationArea extends "Order Processor Role Center"
+pageextension 50130 ExtendNavigationArea extends "Order Processor Role Center"
 {
     //Easy access on the Website
     actions
