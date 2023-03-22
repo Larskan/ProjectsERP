@@ -1,28 +1,28 @@
 table 50119 EmployeeTable
 {
-    Caption = 'EmployeeTable';
+    Caption = 'Employee Table';
     DataClassification = ToBeClassified;
 
     fields
     {
         field(1; EmpID; Integer)
         {
-            Caption = 'EmpID';
+            Caption = 'Emp ID';
             DataClassification = ToBeClassified;
         }
         field(10; FirstName; Text[50])
         {
-            Caption = 'FirstName';
+            Caption = 'First Name';
             DataClassification = ToBeClassified;
         }
         field(20; LastName; Text[50])
         {
-            Caption = 'LastName';
+            Caption = 'Last Name';
             DataClassification = ToBeClassified;
         }
         field(30; Email; Text[50])
         {
-            Caption = 'Email';
+            Caption = 'E-Mail';
             DataClassification = ToBeClassified;
         }
         field(40; Username; Text[50])

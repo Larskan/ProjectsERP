@@ -17,12 +17,12 @@ table 50115 Projects
         }
         field(20; TotalTime; Text[50])
         {
-            Caption = 'Total Time';
+            Caption = 'Total Time in hours';
             DataClassification = ToBeClassified;
         }
         field(30; RemainingTime; Text[50])
         {
-            Caption = 'Remaining Time';
+            Caption = 'Remaining Time in hours';
             DataClassification = ToBeClassified;
         }
     }

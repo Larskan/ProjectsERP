@@ -1,13 +1,13 @@
 table 50113 ClosedTasks
 {
-    Caption = 'ClosedTasks';
+    Caption = 'Closed Tasks';
     DataClassification = ToBeClassified;
 
     fields
     {
         field(1; CTaskID; Integer)
         {
-            Caption = 'CTaskID';
+            Caption = 'Closed Task ID';
             DataClassification = ToBeClassified;
         }
     }

@@ -1,23 +1,23 @@
 table 50114 EmployeeRegisterProjects
 {
-    Caption = 'EmployeeRegisterProjects';
+    Caption = 'Employee Registered Projects';
     DataClassification = ToBeClassified;
 
     fields
     {
         field(1; ERPID; Integer)
         {
-            Caption = 'ERPID';
+            Caption = 'ERP ID';
             DataClassification = ToBeClassified;
         }
         field(2; EmpID; Integer)
         {
-            Caption = 'EmpID';
+            Caption = 'Emp ID';
             DataClassification = ToBeClassified;
         }
         field(3; ProjectID; Integer)
         {
-            Caption = 'ProjectID';
+            Caption = 'Project ID';
             DataClassification = ToBeClassified;
         }
     }
@@ -27,6 +27,14 @@ table 50114 EmployeeRegisterProjects
         {
             //Foreign key EmpID and ProjectID
             Clustered = true;
+        }
+        key(FK1; EmpID)
+        {
+            //Employee ID FK
+        }
+        key(FK2; ProjectID)
+        {
+            //Project ID FK
         }
     }
 }

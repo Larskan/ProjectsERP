@@ -7,27 +7,27 @@ table 50116 Tasks
     {
         field(1; TaskID; Integer)
         {
-            Caption = 'TaskID';
+            Caption = 'Task ID';
             DataClassification = ToBeClassified;
         }
         field(2; ProjectID; Integer)
         {
-            Caption = 'ProjectID';
+            Caption = 'Project ID';
             DataClassification = ToBeClassified;
         }
         field(10; TaskName; Text[50])
         {
-            Caption = 'TaskName';
+            Caption = 'Task Name';
             DataClassification = ToBeClassified;
         }
         field(20; TotalTimeUsed; Text[50])
         {
-            Caption = 'TotalTimeUsed';
+            Caption = 'Total Time used in hours';
             DataClassification = ToBeClassified;
         }
         field(30; TaskPlanTime; Text[50])
         {
-            Caption = 'TaskPlanTime';
+            Caption = 'Task Plan Time in hours';
             DataClassification = ToBeClassified;
         }
     }

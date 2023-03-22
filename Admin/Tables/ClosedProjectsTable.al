@@ -7,7 +7,7 @@ table 50112 ClosedProjects
     {
         field(1; CProjectID; Integer)
         {
-            Caption = 'CProjectID';
+            Caption = 'Closed Project ID';
             DataClassification = ToBeClassified;
         }
     }
