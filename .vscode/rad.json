@@ -1,1 +1,1 @@
-﻿{"Added":[],"Modified":[],"Removed":[]}
+﻿{"Added":[],"Modified":[{"Id":50120,"Kind":10,"Name":"SeriesSetup","PackagePath":"/src/Employee/Tables/Tab50120.SeriesSetup.al"},{"Id":50110,"Kind":11,"Name":"NoSeriesSetup","PackagePath":"/src/Employee/Codeunits/Cod50110.NoSeriesSetup.al"},{"Id":50118,"Kind":16,"Name":"EmployeeExt","PackagePath":"/src/Employee/Extensions/EmployeeExtPage.al"}],"Removed":[]}

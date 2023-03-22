@@ -1,4 +1,4 @@
-codeunit 50110 NoSeriesSetup
+codeunit 50111 NoSeriesSetup
 {
     procedure InitSetup()
     var
