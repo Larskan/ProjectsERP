@@ -1,10 +1,10 @@
 Lars work on: Setup Tables, make Foreign Keys etc work
-Lars work on: 
+Lars work on: No. Series
 
-Jan work on: 
+Jan work on: Maui, design, få connection to at virke
 Jan work on: 
 
-Niels work on: 
+Niels work on: Admin Page
 Niels work on: 
 
 - Finished Requirements:
