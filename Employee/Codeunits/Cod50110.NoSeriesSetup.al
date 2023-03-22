@@ -1,5 +1,6 @@
 codeunit 50111 NoSeriesSetup
 {
+    //Setup
     procedure InitSetup()
     var
         NoSeriesSetup: Record SeriesSetup;
