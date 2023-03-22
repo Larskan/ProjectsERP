@@ -27,6 +27,11 @@ pageextension 50130 ExtendNavigationArea extends "Order Processor Role Center"
                     RunObject = page EmployeeERPCard;
                     ApplicationArea = All;
                 }
+                action("No. Series")
+                {
+                    RunObject = page "No. Series";
+                    ApplicationArea = All;
+                }
 
             }
         }
