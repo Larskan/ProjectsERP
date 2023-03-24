@@ -4,7 +4,6 @@ page 50122 ProjectDecument
     Caption = 'ProjectDecument';
     PageType = Document;
     SourceTable = Projects;
-    Editable = false;
 
     layout
     {
@@ -20,10 +19,12 @@ page 50122 ProjectDecument
                 field(TotalTime; Rec.TotalTime)
                 {
                     ToolTip = 'Specifies the value of the Total Time field.';
+                    Editable = false;
                 }
                 field(RemainingTime; Rec.RemainingTime)
                 {
                     ToolTip = 'Specifies the value of the Remaining Time field.';
+                    Editable = false;
                 }
             }
             group("Task Page")

@@ -25,6 +25,11 @@ table 50124 Projects
             Caption = 'Remaining Time in hours';
             DataClassification = ToBeClassified;
         }
+        field(40; Locked; Boolean)
+        {
+            Caption = 'Locked';
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

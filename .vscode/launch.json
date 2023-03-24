@@ -9,7 +9,7 @@
             "server": "http://bc-container",
             "serverInstance": "BC",
             "authentication": "UserPassword",
-            "startupObjectId": 22,
+            "startupObjectId": 50122,
             "startupObjectType": "Page",
             "breakOnError": "All",
             "schemaUpdateMode": "Synchronize", //ForceSync when changing tables
