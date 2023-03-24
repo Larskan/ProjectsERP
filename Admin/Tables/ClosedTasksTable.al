@@ -1,4 +1,4 @@
-table 50113 ClosedTasks
+table 50122 ClosedTasks
 {
     Caption = 'Closed Tasks';
     DataClassification = ToBeClassified;

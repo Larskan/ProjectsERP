@@ -1,4 +1,4 @@
-table 50114 EmployeeRegisterProjects
+table 50123 EmployeeRegisterProjects
 {
     Caption = 'Employee Registered Projects';
     DataClassification = ToBeClassified;

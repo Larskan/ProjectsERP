@@ -1,4 +1,4 @@
-table 50116 Tasks
+table 50125 Tasks
 {
     Caption = 'Tasks';
     DataClassification = ToBeClassified;
