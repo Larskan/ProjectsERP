@@ -2,10 +2,9 @@ page 50103 TaskPage
 {
     ApplicationArea = All;
     Caption = 'TaskPage';
-    PageType = List;
+    PageType = ListPart;
     SourceTable = Tasks;
-    UsageCategory = Lists;
-    
+
     layout
     {
         area(content)
@@ -15,6 +14,10 @@ page 50103 TaskPage
                 field(TaskName; Rec.TaskName)
                 {
                     ToolTip = 'Specifies the value of the TaskName field.';
+                }
+                field(Description; Rec.Description)
+                {
+                    ToolTip = 'Specifies the value of the Description field.';
                 }
                 field(TaskPlanTime; Rec.TaskPlanTime)
                 {
