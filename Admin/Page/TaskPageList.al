@@ -4,6 +4,7 @@ page 50124 TaskPage
     Caption = 'TaskPage';
     PageType = ListPart;
     SourceTable = Tasks;
+    Editable = false;
 
     layout
     {

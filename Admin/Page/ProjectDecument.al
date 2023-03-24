@@ -39,4 +39,37 @@ page 50122 ProjectDecument
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(AddNewTask)
+            {
+                Caption = 'New Task';
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    taskCard: Page "Task Card";
+                begin
+                    taskCard.Run();
+                end;
+            }
+            action(ProjectDone)
+            {
+                Caption = 'Mark Project Done';
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    confirmMgmt: Codeunit "Confirm Management";
+                begin
+                    if confirmMgmt.GetResponseOrDefault('Confirm project done', true) then
+                        Message('done')
+                    else
+                        Message('Not done')
+                end;
+            }
+        }
+    }
 }

@@ -23,18 +23,9 @@ table 50123 EmployeeRegisterProjects
     }
     keys
     {
-        key(PK; ERPID)
+        key(PK; EmpID, ProjectID, ERPID)
         {
-            //Foreign key EmpID and ProjectID
             Clustered = true;
-        }
-        key(FK1; EmpID)
-        {
-            //Employee ID FK
-        }
-        key(FK2; ProjectID)
-        {
-            //Project ID FK
         }
     }
 }
