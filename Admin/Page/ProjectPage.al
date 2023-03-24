@@ -2,9 +2,8 @@ page 50101 ProjectPage
 {
     ApplicationArea = All;
     Caption = 'ProjectPage';
-    PageType = List;
+    PageType = Card;
     SourceTable = Projects;
-    UsageCategory = Lists;
 
     layout
     {
