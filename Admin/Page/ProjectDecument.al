@@ -4,6 +4,7 @@ page 50122 ProjectDecument
     Caption = 'ProjectDecument';
     PageType = Document;
     SourceTable = Projects;
+    DeleteAllowed = false;
 
     layout
     {
@@ -56,6 +57,30 @@ page 50122 ProjectDecument
                     AdminTaskCode.TaskCardPage(rec.ProjectID);
                     CurrPage.Close();
                     CurrPage.Run();
+                end;
+            }
+            action(EditTask)
+            {
+                Caption = 'Edit Task';
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    myint: Integer;
+                begin
+
+                end;
+            }
+            action(addEmployee)
+            {
+                Caption = 'Add Employee';
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    myint: Integer;
+                begin
+
                 end;
             }
             action(ProjectDone)
