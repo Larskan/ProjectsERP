@@ -6,6 +6,7 @@ page 50124 TaskPage
     SourceTable = Tasks;
     Editable = false;
 
+
     layout
     {
         area(content)

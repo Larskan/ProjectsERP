@@ -33,7 +33,7 @@ page 50122 ProjectDecument
                 part(TaskPage; 50124)
                 {
                     ApplicationArea = Basic, Suite;
-                    Editable = true;
+                    Editable = false;
                     Enabled = true;
                     SubPageLink = ProjectID = field(ProjectID);
                     UpdatePropagation = Both;
@@ -64,9 +64,11 @@ page 50122 ProjectDecument
 
                 trigger OnAction()
                 var
-                    myint: Integer;
+                    Task: Record Tasks;
+                    selectTaskCodeUnite: Codeunit AdminTaskCode;
                 begin
-
+                    CurrPage.TaskPage.Page.SetSelectionFilter(Task);
+                    selectTaskCodeUnite.SelectTask(Task);
                 end;
             }
             action(addEmployee)
