@@ -55,8 +55,6 @@ page 50122 ProjectDecument
                     AdminTaskCode: Codeunit AdminTaskCode;
                 begin
                     AdminTaskCode.TaskCardPage(rec.ProjectID);
-                    CurrPage.Close();
-                    CurrPage.Run();
                 end;
             }
             action(EditTask)
