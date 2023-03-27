@@ -8,6 +8,7 @@ table 50123 EmployeeRegisterProjects
         field(1; ERPID; Integer)
         {
             Caption = 'ERP ID';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(2; EmpID; Integer)

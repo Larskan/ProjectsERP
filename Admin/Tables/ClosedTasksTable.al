@@ -8,6 +8,7 @@ table 50122 ClosedTasks
         field(1; CTaskID; Integer)
         {
             Caption = 'Closed Task ID';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(2; CProjectID; Integer)
