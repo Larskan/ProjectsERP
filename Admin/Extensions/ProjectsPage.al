@@ -3,7 +3,7 @@ page 50110 ProjectsPage
     ApplicationArea = All;
     Caption = 'Projects';
     PageType = Card;
-    SourceTable = Projects;
+    SourceTable = ProjectTable;
 
     layout
     {

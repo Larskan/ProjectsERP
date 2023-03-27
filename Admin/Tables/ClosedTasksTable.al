@@ -14,6 +14,7 @@ table 50113 ClosedTasks
         {
             Caption = 'Closed Project ID';
             DataClassification = ToBeClassified;
+            TableRelation = ClosedProjects.CProjectID;
         }
         field(10; TaskName; Text[50])
         {
@@ -36,10 +37,6 @@ table 50113 ClosedTasks
         key(PK; CTaskID)
         {
             Clustered = true;
-        }
-        key(FK; CProjectID)
-        {
-            //Closed Project ID FK
         }
     }
 }

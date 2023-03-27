@@ -14,27 +14,20 @@ table 50114 EmployeeRegisterProjects
         {
             Caption = 'Emp ID';
             DataClassification = ToBeClassified;
+            TableRelation = EmployeeTable.EmpID;
         }
         field(3; ProjectID; Integer)
         {
             Caption = 'Project ID';
             DataClassification = ToBeClassified;
+            TableRelation = ProjectTable.ProjectID;
         }
     }
     keys
     {
         key(PK; ERPID)
         {
-            //Foreign key EmpID and ProjectID
             Clustered = true;
-        }
-        key(FK1; EmpID)
-        {
-            //Employee ID FK
-        }
-        key(FK2; ProjectID)
-        {
-            //Project ID FK
         }
     }
 }

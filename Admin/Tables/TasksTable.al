@@ -1,4 +1,4 @@
-table 50116 Tasks
+table 50116 TasksTable
 {
     Caption = 'Tasks';
     DataClassification = ToBeClassified;
@@ -10,10 +10,11 @@ table 50116 Tasks
             Caption = 'Task ID';
             DataClassification = ToBeClassified;
         }
-        field(2; ProjectID; Integer)
+        field(2; ProjectID; Code[20])
         {
             Caption = 'Project ID';
             DataClassification = ToBeClassified;
+            TableRelation = ProjectTable.ProjectID;
         }
         field(10; TaskName; Text[50])
         {
@@ -36,11 +37,6 @@ table 50116 Tasks
         key(PK; TaskID)
         {
             Clustered = true;
-        }
-        key(FK1; ProjectID)
-        {
-            //ProjectID FK
-            //IncludedFields = ProjectID;
         }
     }
 }

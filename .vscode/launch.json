@@ -12,7 +12,7 @@
             "startupObjectId": 22,
             "startupObjectType": "Page",
             "breakOnError": "All",
-            "schemaUpdateMode": "Synchronize", //ForceSync when changing tables
+            "schemaUpdateMode": "ForceSync", //ForceSync when changing tables
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,

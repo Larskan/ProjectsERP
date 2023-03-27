@@ -3,7 +3,7 @@ page 50111 TasksPage
     ApplicationArea = All;
     Caption = 'TasksPage';
     PageType = Card;
-    SourceTable = Tasks;
+    SourceTable = TasksTable;
 
     layout
     {
