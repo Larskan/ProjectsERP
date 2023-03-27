@@ -51,9 +51,11 @@ page 50122 ProjectDecument
 
                 trigger OnAction()
                 var
-                    taskCard: Page "Task Card";
+                    AdminTaskCode: Codeunit AdminTaskCode;
                 begin
-                    taskCard.Run();
+                    AdminTaskCode.TaskCardPage(rec.ProjectID);
+                    CurrPage.Close();
+                    CurrPage.Run();
                 end;
             }
             action(ProjectDone)
