@@ -15,18 +15,18 @@ table 50123 EmployeeRegisterProjects
         {
             Caption = 'Emp ID';
             DataClassification = ToBeClassified;
-            TableRelation = EmployeeTable.EmpID;
+            TableRelation = EmployeeTable.EmpID;//Foreign Key Relation
         }
         field(3; ProjectID; Integer)
         {
             Caption = 'Project ID';
             DataClassification = ToBeClassified;
-            TableRelation = ProjectTable.ProjectID;
+            TableRelation = ProjectTable.ProjectID;//Foreign Key Relation
         }
     }
     keys
     {
-        key(PK; EmpID, ProjectID, ERPID)
+        key(PK; ERPID)
         {
             Clustered = true;
         }

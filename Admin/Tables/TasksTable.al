@@ -15,13 +15,13 @@ table 50125 TasksTable
         {
             Caption = 'Project ID';
             DataClassification = ToBeClassified;
-            TableRelation = ProjectTable.ProjectID;
+            TableRelation = ProjectTable.ProjectID; //Foreign Key Relation
         }
         field(3; EmpID; Integer)
         {
             Caption = 'Emp ID';
             DataClassification = ToBeClassified;
-            TableRelation = EmployeeTable.EmpID;
+            TableRelation = EmployeeTable.EmpID; //Foreign Key Relation
         }
         field(10; TaskName; Text[50])
         {
@@ -51,7 +51,7 @@ table 50125 TasksTable
     }
     keys
     {
-        key(PK; ProjectID, EmpID, TaskID)
+        key(PK; TaskID)
         {
             Clustered = true;
         }

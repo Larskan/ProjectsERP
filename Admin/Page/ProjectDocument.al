@@ -1,7 +1,7 @@
-page 50122 ProjectDecument
+page 50122 ProjectDocument
 {
     ApplicationArea = All;
-    Caption = 'ProjectDecument';
+    Caption = 'ProjectDocument';
     PageType = Document;
     SourceTable = ProjectTable;
     DeleteAllowed = false;
