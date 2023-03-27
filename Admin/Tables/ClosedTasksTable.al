@@ -1,4 +1,4 @@
-table 50113 ClosedTasks
+table 50122 ClosedTasks
 {
     Caption = 'Closed Tasks';
     DataClassification = ToBeClassified;
@@ -8,6 +8,7 @@ table 50113 ClosedTasks
         field(1; CTaskID; Integer)
         {
             Caption = 'Closed Task ID';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(2; CProjectID; Integer)

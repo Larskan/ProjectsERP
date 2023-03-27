@@ -1,4 +1,4 @@
-table 50114 EmployeeRegisterProjects
+table 50123 EmployeeRegisterProjects
 {
     Caption = 'Employee Registered Projects';
     DataClassification = ToBeClassified;
@@ -8,6 +8,7 @@ table 50114 EmployeeRegisterProjects
         field(1; ERPID; Integer)
         {
             Caption = 'ERP ID';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(2; EmpID; Integer)
@@ -25,7 +26,7 @@ table 50114 EmployeeRegisterProjects
     }
     keys
     {
-        key(PK; ERPID)
+        key(PK; EmpID, ProjectID, ERPID)
         {
             Clustered = true;
         }

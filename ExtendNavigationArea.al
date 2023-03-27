@@ -12,16 +12,6 @@ pageextension 50130 ExtendNavigationArea extends "Order Processor Role Center"
                     RunObject = page "Employee Card";
                     ApplicationArea = All;
                 }
-                action("Projects Page")
-                {
-                    RunObject = page ProjectsPage;
-                    ApplicationArea = All;
-                }
-                action("Tasks Page")
-                {
-                    RunObject = page TasksPage;
-                    ApplicationArea = All;
-                }
                 action("Employee ERP Card")
                 {
                     RunObject = page EmployeeERPCard;
@@ -33,6 +23,19 @@ pageextension 50130 ExtendNavigationArea extends "Order Processor Role Center"
                     ApplicationArea = All;
                 }
 
+            }
+            group("ProjectsERPAdmin")
+            {
+                action("ProjectDecument")
+                {
+                    RunObject = page ProjectDecument;
+                    ApplicationArea = All;
+                }
+                action("TaskPage")
+                {
+                    RunObject = page TaskPageCard;
+                    ApplicationArea = All;
+                }
             }
         }
     }
