@@ -8,6 +8,7 @@ table 50124 Projects
         field(1; ProjectID; Integer)
         {
             Caption = 'Project ID';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(10; ProjectName; Text[50])

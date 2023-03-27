@@ -8,6 +8,7 @@ table 50125 Tasks
         field(1; TaskID; Integer)
         {
             Caption = 'Task ID';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(2; ProjectID; Integer)
