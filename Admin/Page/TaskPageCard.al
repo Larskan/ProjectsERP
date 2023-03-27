@@ -4,7 +4,7 @@ page 50101 TaskPageCard
     Caption = 'TaskPageCard';
     PageType = Card;
     SourceTable = Tasks;
-    
+
     layout
     {
         area(content)
@@ -12,7 +12,7 @@ page 50101 TaskPageCard
             group(General)
             {
                 Caption = 'General';
-                
+
                 field(TaskName; Rec.TaskName)
                 {
                     ToolTip = 'Specifies the value of the TaskName field.';

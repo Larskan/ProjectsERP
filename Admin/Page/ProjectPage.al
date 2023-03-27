@@ -15,16 +15,6 @@ page 50123 ProjectPage
                 {
                     ToolTip = 'Specifies the value of the Project Name field.';
                 }
-                field(TotalTime; Rec.TotalTime)
-                {
-                    ToolTip = 'Specifies the value of the Total Time field.';
-                    Editable = false;
-                }
-                field(RemainingTime; Rec.RemainingTime)
-                {
-                    ToolTip = 'Specifies the value of the Remaining Time field.';
-                    Editable = false;
-                }
             }
         }
     }
