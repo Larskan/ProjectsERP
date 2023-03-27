@@ -36,6 +36,11 @@ pageextension 50130 ExtendNavigationArea extends "Order Processor Role Center"
                     RunObject = page ProjectPage;
                     ApplicationArea = All;
                 }
+                action("TaskPage")
+                {
+                    RunObject = page TaskPageCard;
+                    ApplicationArea = All;
+                }
             }
         }
     }

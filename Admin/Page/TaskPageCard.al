@@ -1,4 +1,4 @@
-page 50101 TaskPageCard
+page 50125 TaskPageCard
 {
     ApplicationArea = All;
     Caption = 'TaskPageCard';
@@ -12,18 +12,23 @@ page 50101 TaskPageCard
             group(General)
             {
                 Caption = 'General';
-
+                field(ProjectID; Rec.ProjectID)
+                {
+                    ToolTip = 'Specifies the value of the ProjectID field.';
+                }
                 field(TaskName; Rec.TaskName)
                 {
                     ToolTip = 'Specifies the value of the TaskName field.';
                 }
-                field(Description; Rec.Description)
-                {
-                    ToolTip = 'Specifies the value of the Description field.';
-                }
                 field(TaskPlanTime; Rec.TaskPlanTime)
                 {
                     ToolTip = 'Specifies the value of the TaskPlanTime field.';
+                }
+                field(Description; Rec.Description)
+                {
+                    ToolTip = 'Specifies the value of the Description field.';
+                    MultiLine = true;
+                    Width = 200;
                 }
             }
         }
