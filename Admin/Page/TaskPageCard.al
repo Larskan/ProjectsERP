@@ -24,6 +24,10 @@ page 50125 TaskPageCard
                 {
                     ToolTip = 'Specifies the value of the TaskPlanTime field.';
                 }
+                field(TaskFinished; Rec.TaskFinished)
+                {
+                    ToolTip = 'Specifies the value of the TaskFinished field.';
+                }
                 field(Description; Rec.Description)
                 {
                     ToolTip = 'Specifies the value of the Description field.';

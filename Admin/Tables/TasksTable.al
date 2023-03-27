@@ -16,6 +16,11 @@ table 50125 Tasks
             Caption = 'Project ID';
             DataClassification = ToBeClassified;
         }
+        field(3; EmpID; Integer)
+        {
+            Caption = 'Emp ID';
+            DataClassification = ToBeClassified;
+        }
         field(10; TaskName; Text[50])
         {
             Caption = 'Task Name';
@@ -26,20 +31,25 @@ table 50125 Tasks
             Caption = 'Description';
             DataClassification = ToBeClassified;
         }
-        field(30; TotalTimeUsed; Text[50])
+        field(30; TotalTimeUsed; Integer)
         {
             Caption = 'Total Time used in hours';
             DataClassification = ToBeClassified;
         }
-        field(40; TaskPlanTime; Text[50])
+        field(40; TaskPlanTime; Integer)
         {
             Caption = 'Task Plan Time in hours';
+            DataClassification = ToBeClassified;
+        }
+        field(50; TaskFinished; Boolean)
+        {
+            Caption = 'Task Marked Finished';
             DataClassification = ToBeClassified;
         }
     }
     keys
     {
-        key(PK; ProjectID, TaskID)
+        key(PK; ProjectID, EmpID, TaskID)
         {
             Clustered = true;
         }

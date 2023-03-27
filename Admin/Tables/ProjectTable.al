@@ -16,20 +16,17 @@ table 50124 Projects
             Caption = 'Project Name';
             DataClassification = ToBeClassified;
         }
-        field(20; TotalTime; Text[50])
+        field(20; TotalTime; Integer)
         {
             Caption = 'Total Time in hours';
-            DataClassification = ToBeClassified;
+            FieldClass = FlowField;
+            CalcFormula = sum("Tasks".TaskPlanTime where(ProjectID = field(ProjectID)));
         }
-        field(30; RemainingTime; Text[50])
+        field(30; RemainingTime; Integer)
         {
             Caption = 'Remaining Time in hours';
-            DataClassification = ToBeClassified;
-        }
-        field(40; Locked; Boolean)
-        {
-            Caption = 'Locked';
-            DataClassification = CustomerContent;
+            FieldClass = FlowField;
+            CalcFormula = sum("Tasks".TaskPlanTime where(ProjectID = field(ProjectID)));
         }
     }
     keys
