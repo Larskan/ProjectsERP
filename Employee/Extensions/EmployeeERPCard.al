@@ -4,6 +4,7 @@ page 50117 EmployeeERPCard
     Caption = 'EmployeeERP Card';
     PageType = Card;
     SourceTable = EmployeeTable;
+    UsageCategory = Administration;
 
     layout
     {
@@ -43,6 +44,53 @@ page 50117 EmployeeERPCard
                     Caption = 'Password';
                     ToolTip = 'Specifies the value of the Password field.';
                 }
+            }
+        }
+
+
+    }
+
+    actions
+    {
+        area(Promoted)
+        {
+            group(Category_Category1)
+            {
+                Caption = 'Insert new Employee', Comment = 'Generated from the PromotedActionCategories property index 3.';
+
+
+            }
+        }
+
+
+        area(Processing)
+        {
+
+        }
+
+        area(Navigation)
+        {
+            action("Setup Series Number")
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    SeriesSetup: Codeunit 50111;
+                begin
+                    SeriesSetup.CreateNoSeries();
+                end;
+            }
+
+            action("Dummy Data")
+            {
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    Dummy: Codeunit 50114;
+                begin
+                    Dummy.GenerateEmployees();
+                end;
             }
         }
     }
