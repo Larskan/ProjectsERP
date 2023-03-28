@@ -1,4 +1,4 @@
-table 50115 Projects
+table 50124 Projects
 {
     Caption = 'Projects';
     DataClassification = ToBeClassified;
@@ -8,6 +8,7 @@ table 50115 Projects
         field(1; ProjectID; Integer)
         {
             Caption = 'Project ID';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(10; ProjectName; Text[50])
@@ -15,14 +16,21 @@ table 50115 Projects
             Caption = 'Project Name';
             DataClassification = ToBeClassified;
         }
-        field(20; TotalTime; Text[50])
+        field(20; TotalTime; Integer)
         {
             Caption = 'Total Time in hours';
-            DataClassification = ToBeClassified;
+            FieldClass = FlowField;
+            CalcFormula = sum(TasksTable.TaskPlanTime where(ProjectID = field(ProjectID)));
         }
-        field(30; RemainingTime; Text[50])
+        field(30; timeUsed; Integer)
         {
-            Caption = 'Remaining Time in hours';
+            Caption = 'Time used in minitues';
+            FieldClass = FlowField;
+            CalcFormula = sum(TasksTable.TotalTimeUsed where(ProjectID = field(ProjectID)));
+        }
+        field(40; ProjectDone; Boolean)
+        {
+            Caption = 'Project Done';
             DataClassification = ToBeClassified;
         }
     }
@@ -33,4 +41,7 @@ table 50115 Projects
             Clustered = true;
         }
     }
+
+
+
 }

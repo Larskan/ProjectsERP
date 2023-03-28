@@ -1,4 +1,4 @@
-table 50112 ClosedProjects
+table 50121 ClosedProjects
 {
     Caption = 'ClosedProjects';
     DataClassification = ToBeClassified;
@@ -8,6 +8,7 @@ table 50112 ClosedProjects
         field(1; CProjectID; Integer)
         {
             Caption = 'Closed Project ID';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(10; ProjectName; Text[50])
