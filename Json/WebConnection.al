@@ -8,6 +8,7 @@ codeunit 50130 WebGet
     procedure Login(Username: Text; Password: Text) result: JsonObject
     var
         EmpRec: Record EmployeeTable;
+        temp: HttpResponseMessage;
         JEmp: JsonObject;
     begin
         EmpRec.SetFilter(Username, Username);
