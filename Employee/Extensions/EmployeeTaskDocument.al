@@ -44,7 +44,7 @@ page 50126 EmployeeTaskDocument
                 trigger OnAction()
                 var
                     EmployeeTable: Record EmployeeTable;
-                    addEmpToTask: Codeunit 50112;
+                    addEmpToTask: Codeunit 50117;
                     result: Boolean;
                 begin
                     CurrPage.EmployeePage.Page.SetSelectionFilter(EmployeeTable);

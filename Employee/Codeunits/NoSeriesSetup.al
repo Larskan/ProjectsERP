@@ -38,7 +38,7 @@ codeunit 50111 NoSeriesSetup
         SetupExists: Boolean;
 }
 
-codeunit 50117 NoSeriesEmployee
+codeunit 50112 NoSeriesEmployee
 {
     procedure CreateEmployeeNoSeries()
     var
@@ -92,61 +92,7 @@ codeunit 50113 NoSeriesTasks
     end;
 }
 
-codeunit 50113 NoSeriesEmployee
-{
-    procedure CreateEmployeeNoSeries()
-    var
-        NoSeriesEmployee: Record SeriesSetup;
-        NoSerie: Record "No. Series";
-        NoSerieLine: Record "No. Series Line";
-    begin
-        NoSeriesEmployee.Init;
-
-        NoSerie.Code := 'EmployeeSeriesERP';
-        NoSerie.Description := 'No. Series for ERP Employees';
-        NoSerie."Default Nos." := true;
-        NoSerie."Manual Nos." := true;
-        if NoSerie.Insert then;
-
-        NoSerieLine."Series Code" := NoSerie.Code;
-        NoSerieLine."Starting No." := 'SeriesERP1000';
-        NoSerieLine."Ending No." := 'SeriesERP9000';
-        NoSerieLine."Last No. Used" := 'SeriesERP1001';
-        if NoSerieLine.Insert then;
-        NoSeriesEmployee."Setup Nos" := NoSerie.Code;
-        NoSeriesEmployee.Modify();
-
-    end;
-}
-
-codeunit 50113 NoSeriesTasks
-{
-    procedure CreateEmployeeNoSeries()
-    var
-        NoSeriesTasks: Record SeriesSetup;
-        NoSerie: Record "No. Series";
-        NoSerieLine: Record "No. Series Line";
-    begin
-        NoSeriesTasks.Init;
-
-        NoSerie.Code := 'EmployeeSeriesERP';
-        NoSerie.Description := 'No. Series for ERP Employees';
-        NoSerie."Default Nos." := true;
-        NoSerie."Manual Nos." := true;
-        if NoSerie.Insert then;
-
-        NoSerieLine."Series Code" := NoSerie.Code;
-        NoSerieLine."Starting No." := 'SeriesERP2000';
-        NoSerieLine."Ending No." := 'SeriesERP9000';
-        NoSerieLine."Last No. Used" := 'SeriesERP2001';
-        if NoSerieLine.Insert then;
-        NoSeriesTasks."Setup Nos" := NoSerie.Code;
-        NoSeriesTasks.Modify();
-
-    end;
-}
-
-codeunit 50112 EmpToTask
+codeunit 50117 EmpToTask
 {
     procedure addEmpToTask(var EmployeeTable: Record EmployeeTable; var TasksTable: Record TasksTable) result: Boolean
     var
