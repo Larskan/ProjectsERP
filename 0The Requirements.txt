@@ -31,10 +31,12 @@ features and Time Estimate: 114 or 38h
 7) Admin can see which employee is doing which task(flag, igang: true, pause: false) - 2H
 
 - DONE
+0) Dummy Data - 0.5H
 1) No. Series(Employee, Project, Tasks, the IDs) - 2.5H
 2) Setup Tables, check ER, REMEMBER KEYS - 2.5H
 3) Setup Admins Page with all his settings(Create Project, assign users, close projects, create tasks+test) - 10H
 ---
+a) Setup the Views on MAUI
 b) Setup MVVM without function, some test: LoginView, UserView, ProjectView, TaskView has time - 2H
 
 MAUI

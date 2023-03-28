@@ -46,14 +46,13 @@ page 50117 EmployeeERPCard
                 }
             }
         }
-
-
     }
 
     actions
     {
         area(Promoted)
         {
+
             group(Category_Category1)
             {
                 Caption = 'Insert new Employee', Comment = 'Generated from the PromotedActionCategories property index 3.';
@@ -65,6 +64,7 @@ page 50117 EmployeeERPCard
 
         area(Processing)
         {
+
 
         }
 
@@ -97,11 +97,13 @@ page 50117 EmployeeERPCard
 
             group(Projects)
             {
-                action("View Current Groups")
+                action("View Current Projects")
                 {
                     trigger OnAction()
+                    var
+                        Access: Codeunit 50116;
                     begin
-
+                        Access.AccessProjectsFromEmployee();
                     end;
                 }
             }
