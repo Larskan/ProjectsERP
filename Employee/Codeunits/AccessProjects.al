@@ -2,13 +2,21 @@
 codeunit 50116 AccessProjects
 {
 
-    TableNo = Projects;
-
-    procedure AccessProjectsFromEmployee()
+    procedure AccessProjectsFromEmployee(EmpID: Integer): List of [Text]
     var
+        Task: Record TasksTable;
+        Project: Record Projects;
+        ProjectsList: List of [Text];
     begin
-        //Open Projects where foreign keys match
-        //Query
+        //ProjectsList := [];
+
+        Task.SetRange("EmpID", EmpID);
+        if Task.FindSet then begin
+            repeat
+                Project.Get(Task.ProjectID);
+                ProjectsList.Add(Project.ProjectName);
+            until (Task.Next = 0);
+        end
     end;
 
 }

@@ -103,7 +103,7 @@ page 50117 EmployeeERPCard
                     var
                         Access: Codeunit 50116;
                     begin
-                        Access.AccessProjectsFromEmployee();
+                        Access.AccessProjectsFromEmployee(1);
                     end;
                 }
             }
