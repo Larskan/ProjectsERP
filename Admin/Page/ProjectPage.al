@@ -3,7 +3,7 @@ page 50123 ProjectPage
     ApplicationArea = All;
     Caption = 'ProjectPage';
     PageType = Card;
-    SourceTable = ProjectTable;
+    SourceTable = Projects;
 
     layout
     {
@@ -20,7 +20,7 @@ page 50123 ProjectPage
                     ToolTip = 'Specifies the value of the TotalTime field.';
                     Editable = false;
                 }
-                field(RemainingTime; Rec.RemainingTime)
+                field(timeUsed; Rec.timeUsed)
                 {
                     ToolTip = 'Specifies the value of the RemainingTime field.';
                     Editable = false;

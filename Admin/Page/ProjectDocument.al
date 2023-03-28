@@ -1,9 +1,9 @@
-page 50122 ProjectDocument
+page 50119 ProjectDocument
 {
     ApplicationArea = All;
     Caption = 'ProjectDocument';
     PageType = Document;
-    SourceTable = ProjectTable;
+    SourceTable = Projects;
     DeleteAllowed = false;
 
     layout
@@ -22,7 +22,7 @@ page 50122 ProjectDocument
                     ToolTip = 'Specifies the value of the Total Time field.';
                     Editable = false;
                 }
-                field(RemainingTime; Rec.RemainingTime)
+                field(timeUsed; Rec.timeUsed)
                 {
                     ToolTip = 'Specifies the value of the Remaining Time field.';
                     Editable = false;

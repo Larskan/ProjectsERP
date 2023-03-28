@@ -1,4 +1,4 @@
-table 50124 ProjectTable
+table 50124 Projects
 {
     Caption = 'Projects';
     DataClassification = ToBeClassified;
@@ -20,13 +20,13 @@ table 50124 ProjectTable
         {
             Caption = 'Total Time in hours';
             FieldClass = FlowField;
-            CalcFormula = sum("TasksTable".TaskPlanTime where(ProjectID = field(ProjectID)));
+            CalcFormula = sum(TasksTable.TaskPlanTime where(ProjectID = field(ProjectID)));
         }
-        field(30; RemainingTime; Integer)
+        field(30; timeUsed; Integer)
         {
-            Caption = 'Remaining Time in hours';
+            Caption = 'Time used in minitues';
             FieldClass = FlowField;
-            CalcFormula = sum("TasksTable".TaskPlanTime where(ProjectID = field(ProjectID)));
+            CalcFormula = sum(TasksTable.TotalTimeUsed where(ProjectID = field(ProjectID)));
         }
     }
     keys
@@ -36,15 +36,4 @@ table 50124 ProjectTable
             Clustered = true;
         }
     }
-
-    trigger OnInsert()
-
-    var
-        Codeunit: Codeunit NoSeriesSetup;
-
-    begin
-        Codeunit.CreateNoSeries(1);
-        //ProjectID := Codeunit.LastNo;
-    end;
-
 }
