@@ -40,3 +40,29 @@ codeunit 50111 NoSeriesSetup
     var
         SetupExists: Boolean;
 }
+
+codeunit 50112 EmpToTask
+{
+    procedure addEmpToTask(var EmployeeTable: Record EmployeeTable; var TasksTable: Record TasksTable) result: Boolean
+    var
+        countAmount: Integer;
+        taksTable: Record TasksTable;
+        RecRef: RecordRef;
+        taskIdText: Text;
+    begin
+        if EmployeeTable.FindSet() then
+            repeat
+                countAmount += 1;
+            until EmployeeTable.Next() = 0;
+        if countAmount = 1 then begin
+            EmployeeTable.FindFirst();
+            TasksTable.EmpID := EmployeeTable.EmpID;
+            TasksTable.empAdded := true;
+            TasksTable.Modify();
+            result := true;
+        end
+        else begin
+            result := false;
+        end;
+    end;
+}

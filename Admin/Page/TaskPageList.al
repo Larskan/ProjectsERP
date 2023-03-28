@@ -33,6 +33,16 @@ page 50124 TaskPage
                     ToolTip = 'Specifies the value of the TotalTimeUsed field.';
                     Editable = false;
                 }
+                field(empAdded; Rec.empAdded)
+                {
+                    ToolTip = 'Specifies the value of the empAdded field.';
+                    Editable = false;
+                }
+                field(TaskFinished; Rec.TaskFinished)
+                {
+                    ToolTip = 'Specifies the value of the TaskFinished field.';
+                    Editable = false;
+                }
             }
         }
     }
