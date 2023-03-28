@@ -48,3 +48,27 @@ codeunit 50115 DummyDataGeneratorProjects
         end;
     end;
 }
+
+codeunit 50118 DummyDataGeneratorTasks
+{
+    TableNo = TasksTable;
+
+    procedure GenerateTasks()
+    var
+        Task: Record TasksTable;
+        i: Integer;
+        Project: Record Projects;
+        Employee: Record EmployeeTable;
+        TaskName: Text;
+        Description: Text;
+        TotalTimeUsed: Integer;
+        TaskPlanTime: Integer;
+        TaskFinished: Boolean;
+        EmployeeAdded: Boolean;
+    begin
+        for i := 1 to 5 do begin
+            Task.TaskID := i;
+
+        end;
+    end;
+}

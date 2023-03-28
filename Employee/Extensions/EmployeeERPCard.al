@@ -89,10 +89,23 @@ page 50117 EmployeeERPCard
                 var
                     Dummy: Codeunit 50114;
                     Dummy2: Codeunit 50115;
+                    Dummy3: Codeunit 50118;
                 begin
                     Dummy.GenerateEmployees();
                     Dummy2.GenerateProjects();
+                    Dummy3.GenerateTasks();
                 end;
+            }
+
+            action("Time Registration")
+            {
+                //Req: On employee card a new action must offer option to access employess time registrations
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+
+                end;
+
             }
 
             group(Projects)
@@ -106,6 +119,8 @@ page 50117 EmployeeERPCard
                         Access.AccessProjectsFromEmployee(1);
                     end;
                 }
+
+
             }
         }
     }
