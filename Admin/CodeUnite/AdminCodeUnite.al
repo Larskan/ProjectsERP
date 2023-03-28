@@ -1,3 +1,4 @@
+//Open Page with Insert
 codeunit 50121 AdminTaskCode
 {
     procedure TaskCardPage(var No: Integer)
