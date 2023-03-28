@@ -1,5 +1,5 @@
 //This is some really bad dummy data, but it works
-codeunit 50114 DummyDataGenerator
+codeunit 50114 DummyDataGeneratorEmployee
 {
     TableNo = EmployeeTable;
 
@@ -28,6 +28,23 @@ codeunit 50114 DummyDataGenerator
             Employee.Insert;
         end;
     end;
+}
 
+codeunit 50115 DummyDataGeneratorProjects
+{
+    TableNo = Projects;
 
+    procedure GenerateProjects()
+    var
+        Project: Record Projects;
+        i: Integer;
+        ProjectName: Text;
+        TotalTime: Integer;
+        timeUsed: Integer;
+    begin
+        for i := 1 to 3 do begin
+            Project.ProjectID := i;
+            Project.ProjectName := Format('ProjectFirstName%d', i);
+        end;
+    end;
 }
