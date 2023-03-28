@@ -36,4 +36,15 @@ table 50124 ProjectTable
             Clustered = true;
         }
     }
+
+    trigger OnInsert()
+
+    var
+        Codeunit: Codeunit NoSeriesSetup;
+
+    begin
+        Codeunit.CreateNoSeries(1);
+        //ProjectID := Codeunit.LastNo;
+    end;
+
 }

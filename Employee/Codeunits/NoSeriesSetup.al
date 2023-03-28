@@ -1,13 +1,13 @@
 codeunit 50111 NoSeriesSetup
 {
     //Setup
-    procedure InitSetup()
+    procedure CreateNoSeries(SeriesID: Integer)
     var
         NoSeriesSetup: Record SeriesSetup;
         NoSerie: Record "No. Series";
         NoSerieLine: Record "No. Series Line";
     begin
-        NoSeriesSetup.Init;
+        NoSerie.Init;
 
         NoSerie.Code := 'SeriesERP';
         NoSerie.Description := 'No. Series for ERP Projects';
@@ -21,6 +21,11 @@ codeunit 50111 NoSeriesSetup
         if NoSerieLine.Insert then;
         NoSeriesSetup."Setup Nos" := NoSerie.Code;
         NoSeriesSetup.Modify();
+
+        if NoSerie.Get(SeriesID) then begin
+            //NoSerie. += 1;
+            NoSerie.Modify();
+        end;
     end;
 
     local procedure Fix()
