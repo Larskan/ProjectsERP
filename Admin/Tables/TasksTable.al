@@ -15,7 +15,7 @@ table 50125 TasksTable
         {
             Caption = 'Project ID';
             DataClassification = ToBeClassified;
-            TableRelation = ProjectTable.ProjectID; //Foreign Key Relation
+            TableRelation = Projects.ProjectID; //Foreign Key Relation
         }
         field(3; EmpID; Integer)
         {
