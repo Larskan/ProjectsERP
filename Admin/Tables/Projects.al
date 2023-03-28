@@ -28,6 +28,11 @@ table 50124 Projects
             FieldClass = FlowField;
             CalcFormula = sum(TasksTable.TotalTimeUsed where(ProjectID = field(ProjectID)));
         }
+        field(40; ProjectDone; Boolean)
+        {
+            Caption = 'Project Done';
+            DataClassification = ToBeClassified;
+        }
     }
     keys
     {

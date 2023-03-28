@@ -48,6 +48,11 @@ table 50125 TasksTable
             Caption = 'Task Marked Finished';
             DataClassification = ToBeClassified;
         }
+        field(60; empAdded; Boolean)
+        {
+            Caption = 'Employee Added';
+            DataClassification = ToBeClassified;
+        }
     }
     keys
     {
