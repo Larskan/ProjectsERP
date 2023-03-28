@@ -88,9 +88,22 @@ page 50117 EmployeeERPCard
                 trigger OnAction()
                 var
                     Dummy: Codeunit 50114;
+                    Dummy2: Codeunit 50115;
                 begin
                     Dummy.GenerateEmployees();
+                    Dummy2.GenerateProjects();
                 end;
+            }
+
+            group(Projects)
+            {
+                action("View Current Groups")
+                {
+                    trigger OnAction()
+                    begin
+
+                    end;
+                }
             }
         }
     }
