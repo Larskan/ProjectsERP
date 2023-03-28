@@ -5,9 +5,10 @@ codeunit 50130 WebGet
         result := x + y;
     end;
 
-    procedure Login(Username: Text; Password: Text) result: JsonObject
+    procedure Login(Username: Text; Password: Text) result: Text
     var
         EmpRec: Record EmployeeTable;
+        temp: HttpResponseMessage;
         JEmp: JsonObject;
     begin
         EmpRec.SetFilter(Username, Username);
@@ -26,7 +27,8 @@ codeunit 50130 WebGet
             JEmp.Add('LastName', '');
             JEmp.Add('Boolean', false);
         end;
-        result := JEmp;
+
+        JEmp.WriteTo(result);
     end;
 }
 
