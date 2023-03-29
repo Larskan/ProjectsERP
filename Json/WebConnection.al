@@ -109,9 +109,13 @@ codeunit 50130 WebGet
         JsonTaskObject.Add('ProjectID', TaskTable.ProjectID);
         JsonTaskObject.Add('TaskName', TaskTable.TaskName);
         JsonTaskObject.Add('Description', TaskTable.Description);
+        JsonTaskObject.Add('TaskPlanTime', TaskTable.TaskPlanTime);
+        JsonTaskObject.Add('TotalTimeUsed', TaskTable.TotalTimeUsed);
         JsonArrayTask.Add(JsonTaskObject);
     end;
+
 }
+
 
 
 codeunit 50131 webInsert
