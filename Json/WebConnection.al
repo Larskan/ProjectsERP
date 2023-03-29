@@ -1,4 +1,4 @@
-codeunit 50130 WebGet
+codeunit 50132 WebGet
 {
     procedure Number(x: Integer; y: Integer) result: Integer
     begin
@@ -14,13 +14,13 @@ codeunit 50130 WebGet
         EmpRec.SetFilter(Username, Username);
         EmpRec.SetFilter(Password, Password);
 
-        if not EmpRec.IsEmpty then
-            repeat
-                JEmp.Add('EmpID', EmpRec.EmpID);
-                JEmp.Add('FirstName', EmpRec.FirstName);
-                JEmp.Add('LastName', EmpRec.LastName);
-                JEmp.Add('Boolean', true);
-            until EmpRec.Next() = 0
+        if not EmpRec.IsEmpty then begin
+            EmpRec.FindFirst();
+            JEmp.Add('EmpID', EmpRec.EmpID);
+            JEmp.Add('FirstName', EmpRec.FirstName);
+            JEmp.Add('LastName', EmpRec.LastName);
+            JEmp.Add('Boolean', true);
+        end
         else begin
             JEmp.Add('EmpID', '');
             JEmp.Add('FirstName', '');
