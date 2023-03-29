@@ -114,7 +114,9 @@ codeunit 50130 WebGet
         JsonTaskObject.Add('TotalTimeUsed', TaskTable.TotalTimeUsed);
         JsonArrayTask.Add(JsonTaskObject);
     end;
+
 }
+
 
 
 codeunit 50131 webInsert
