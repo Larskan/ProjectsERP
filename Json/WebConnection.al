@@ -10,6 +10,7 @@ codeunit 50132 WebGet
         EmpRec: Record EmployeeTable;
         temp: HttpResponseMessage;
         JEmp: JsonObject;
+        SalesLine: Record "Sales Line";
     begin
         Username := Username.Trim();
         Password := Password.Trim();
@@ -22,15 +23,6 @@ codeunit 50132 WebGet
             JEmp.Add('LastName', EmpRec.LastName);
             JEmp.Add('Boolean', true);
 
-<<<<<<< HEAD
-        if not EmpRec.IsEmpty then begin
-            EmpRec.FindFirst();
-            JEmp.Add('EmpID', EmpRec.EmpID);
-            JEmp.Add('FirstName', EmpRec.FirstName);
-            JEmp.Add('LastName', EmpRec.LastName);
-            JEmp.Add('Boolean', true);
-=======
->>>>>>> 579f4e5cc0d832146d4400151590e25e653b491b
         end
         else begin
             JEmp.Add('EmpID', '');
