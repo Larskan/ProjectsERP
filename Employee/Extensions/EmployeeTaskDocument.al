@@ -11,10 +11,6 @@ page 50126 EmployeeTaskDocument
         {
             group(General)
             {
-                field(TaskID; Rec.TaskID)
-                {
-
-                }
             }
             group("Employee Page")
             {

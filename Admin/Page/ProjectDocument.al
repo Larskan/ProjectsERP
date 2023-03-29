@@ -149,6 +149,22 @@ page 50119 ProjectDocument
                     end;
                 end;
             }
+            action(test)
+            {
+                Caption = 'Add Employee';
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedOnly = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                var
+                    WebGet: Codeunit WebGet;
+                begin
+                    WebGet.GetProjectTask(1);
+                end;
+            }
         }
     }
 }
