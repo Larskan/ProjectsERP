@@ -5,22 +5,25 @@ codeunit 50130 WebGet
         result := x + y;
     end;
 
-    procedure Login(Username: Text; Password: Text) result: Text
+    procedure Login(Username: Text; Password: Text) result: Text;
     var
         EmpRec: Record EmployeeTable;
         temp: HttpResponseMessage;
         JEmp: JsonObject;
+        ok: Boolean;
+        varone: Text;
     begin
         EmpRec.SetFilter(Username, Username);
         EmpRec.SetFilter(Password, Password);
+        ok := Evaluate(varone, Username);
+        if not EmpRec.IsEmpty and not (Username.Contains(' ')) and not (Password.Contains(' ')) and not (Username = '') and not (Password = '') then begin
+            EmpRec.FindFirst();
+            JEmp.Add('EmpID', EmpRec.EmpID);
+            JEmp.Add('FirstName', EmpRec.FirstName);
+            JEmp.Add('LastName', EmpRec.LastName);
+            JEmp.Add('Boolean', true);
 
-        if not EmpRec.IsEmpty then
-            repeat
-                JEmp.Add('EmpID', EmpRec.EmpID);
-                JEmp.Add('FirstName', EmpRec.FirstName);
-                JEmp.Add('LastName', EmpRec.LastName);
-                JEmp.Add('Boolean', true);
-            until EmpRec.Next() = 0
+        end
         else begin
             JEmp.Add('EmpID', '');
             JEmp.Add('FirstName', '');
