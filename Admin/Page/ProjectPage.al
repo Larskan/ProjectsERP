@@ -25,6 +25,10 @@ page 50123 ProjectPage
                     ToolTip = 'Specifies the value of the RemainingTime field.';
                     Editable = false;
                 }
+                field(ProjectDone; rec.ProjectDone)
+                {
+                    ToolTip = 'Specifies the value of the ProjectDone field.';
+                }
             }
         }
     }
