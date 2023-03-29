@@ -10,13 +10,12 @@ codeunit 50130 WebGet
         EmpRec: Record EmployeeTable;
         temp: HttpResponseMessage;
         JEmp: JsonObject;
-        ok: Boolean;
-        varone: Text;
     begin
+        Username := Username.Trim();
+        Password := Password.Trim();
         EmpRec.SetFilter(Username, Username);
         EmpRec.SetFilter(Password, Password);
-        ok := Evaluate(varone, Username);
-        if not EmpRec.IsEmpty and not (Username.Contains(' ')) and not (Password.Contains(' ')) and not (Username = '') and not (Password = '') then begin
+        if not EmpRec.IsEmpty and not (Username = '') and not (Password = '') then begin
             EmpRec.FindFirst();
             JEmp.Add('EmpID', EmpRec.EmpID);
             JEmp.Add('FirstName', EmpRec.FirstName);
