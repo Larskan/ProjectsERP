@@ -1,4 +1,4 @@
-codeunit 50132 WebGet
+codeunit 50130 WebGet
 {
     procedure Number(x: Integer; y: Integer) result: Integer
     begin
