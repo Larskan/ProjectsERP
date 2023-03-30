@@ -17,11 +17,11 @@ Req: New page to create projects with:
 Req: Use a No. Series
 Req: Needs to be able to close the projects:
 - Post them, move them to the "posted projects" table and delete them from the projects table
-
-
-
 Req: Need to be able to choose a project
 Req: User can only choose assigned projects
+
+
+
 Req: On employee card a new action must offer option to access employess time registrations
 Req: Each night: 
 - a scheduled job must post the time registrations 

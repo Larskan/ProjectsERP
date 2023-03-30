@@ -78,4 +78,5 @@ codeunit 50121 AdminTaskCode
                 end;
             until TaskTable.Next() = 0;
     end;
+
 }

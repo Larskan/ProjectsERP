@@ -155,6 +155,46 @@ page 50119 ProjectDocument
                     end;
                 end;
             }
+
+            action(SendMailByMidnight)
+            {
+                Caption = 'Send Email';
+                ApplicationArea = all;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    ProjectTable: Record Projects;
+                    Email: Codeunit Email;
+                    EmailMessage: Codeunit "Email Message";
+                    MailTime: Codeunit TimedMail;
+                    AttachmentInStream: InStream;
+                    ImportCvsfile: File;
+                    Body: Text;
+                    MailMessage: Text;
+                    Receiver: Text;
+                begin
+                    if ProjectTable.timeUsed > ProjectTable.TotalTime then begin
+                        Receiver := 'heinotestmail@gmail.com';
+                        Body := 'The projects that went over deadline time';
+                        Message(ProjectTable.ProjectName);
+                        EmailMessage.Create(Receiver, Body, MailMessage);
+
+                        //ImportCvsfile.Open()
+                        //ImportCsvFile.CreateInStream(AttachmentInStream);
+
+                        EmailMessage.AddAttachment('', '', AttachmentInStream);
+                        Email.Send(emailMessage, "Email Scenario"::"Send Email");
+                        //ImportCvsfile.Close();
+                    end
+                    else begin
+                        Message('No projects went over time');
+                    end;
+
+
+                end;
+            }
         }
     }
 }
