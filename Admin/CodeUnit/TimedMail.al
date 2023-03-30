@@ -27,7 +27,7 @@ codeunit 50125 TimedMail
             until ProjectTable.Next() = 0;
 
         if not (Body = '') then begin
-            EmailMessage.Create(Reciver, Subject, Body);
+            EmailMessage.Create(Receiver, Subject, Body);
             Email.Send(emailMessage, "Email Scenario"::"SendEmails");
         end;
 
