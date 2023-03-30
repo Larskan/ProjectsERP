@@ -165,34 +165,10 @@ page 50119 ProjectDocument
                 PromotedOnly = true;
                 trigger OnAction()
                 var
-                    ProjectTable: Record Projects;
-                    Email: Codeunit Email;
-                    EmailMessage: Codeunit "Email Message";
                     MailTime: Codeunit TimedMail;
-                    //AttachmentInStream: InStream;
-                    //ImportCvsfile: File;
-                    Subject: Text;
-                    Body: Text;
-
-                    Receiver: Text;
-                    countAmount: Integer;
-                    projectID: Integer; //code vatr for ID
-                    mailCount: Integer; //number of sent emails
-                    MailCountText: Text[50]; //hold format result
                 begin
-
-                    //Goal: If time used is above total time allowed
-                    //Then send mails using codeunit that sorts through Projects
-                    //Send receiver, body and somehow the projects that went over time if any did
-                    projectID := ProjectTable.ProjectID;
-                    mailCount := MailTime.SendMails(projectID);
-                    Body := FORMAT(mailCount, 0, '<0,,.>') + ' mails sent';
-                    Receiver := 'heinotestmail@gmail.com';
-                    Subject := 'Hej';
-                    //Body := 'The projects that went over deadline time';
-                    EmailMessage.Create(Receiver, Body, Subject);
-                    Email.Send(emailMessage, "Email Scenario"::"SendEmails");
-                end
+                    MailTime.SendProjectEmails();
+                end;
 
 
             }
