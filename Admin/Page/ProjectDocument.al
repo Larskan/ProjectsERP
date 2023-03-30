@@ -158,7 +158,17 @@ page 50119 ProjectDocument
 
             action(SendMailByMidnight)
             {
-
+                Caption = 'Send Email';
+                ApplicationArea = all;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    MailTime: Codeunit TimedMail;
+                begin
+                    MailTime.SendProjectEmails();
+                end;
 
 
             }
