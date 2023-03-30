@@ -5,6 +5,7 @@ codeunit 50130 WebGet
         result := x + y;
     end;
 
+    //Accepts parameters: Username and Password
     procedure Login(Username: Text; Password: Text) result: Text;
     var
         EmpRec: Record EmployeeTable;
@@ -12,10 +13,13 @@ codeunit 50130 WebGet
         JEmp: JsonObject;
         SalesLine: Record "Sales Line";
     begin
+        //Trims any whitespace
         Username := Username.Trim();
         Password := Password.Trim();
+        //Matches username/password entered with the params inside Employee Table
         EmpRec.SetFilter(Username, Username);
         EmpRec.SetFilter(Password, Password);
+        //If match is found in Employee: True
         if not EmpRec.IsEmpty and not (Username = '') and not (Password = '') then begin
             EmpRec.FindFirst();
             JEmp.Add('EmpID', EmpRec.EmpID);
@@ -23,6 +27,7 @@ codeunit 50130 WebGet
             JEmp.Add('LastName', EmpRec.LastName);
             JEmp.Add('Boolean', true);
         end
+        //If match is not found or User/pass are empty strings, create JSON object with empty strings
         else begin
             JEmp.Add('EmpID', '');
             JEmp.Add('FirstName', '');
@@ -30,6 +35,7 @@ codeunit 50130 WebGet
             JEmp.Add('Boolean', false);
         end;
 
+        //result returned as Text
         JEmp.WriteTo(result);
     end;
 

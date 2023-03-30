@@ -42,6 +42,7 @@ page 50119 ProjectDocument
                     Editable = false;
                     Enabled = true;
                     SubPageLink = ProjectID = field(ProjectID);
+                    //Changes made to subpage, is reflected in the parent page and vice versa
                     UpdatePropagation = Both;
                 }
             }
@@ -87,6 +88,7 @@ page 50119 ProjectDocument
                     Task: Record TasksTable;
                     selectTaskCodeUnite: Codeunit AdminTaskCode;
                 begin
+                    //Checks if project related to the task is marked as done
                     if rec.ProjectDone = False then begin
                         CurrPage.TaskPage.Page.SetSelectionFilter(Task);
                         selectTaskCodeUnite.SelectTask(Task);
@@ -133,6 +135,10 @@ page 50119 ProjectDocument
                     confirmMgmt: Codeunit "Confirm Management";
                     AdminTaskCode: Codeunit AdminTaskCode;
                 begin
+                    //Checks if ProjectDone field is false
+                    //If false: Confirm box to user
+                    //If user clicks OK to confirm: Editable becomes False and sets ProjectDone field to true and display message and updates page and runs MarkTaskDOne
+                    //MarkTaskDone is a codeunit that marks all tasks associated with the current project as done
                     if rec.ProjectDone = False then begin
                         if confirmMgmt.GetResponseOrDefault('Confirm project done', true) then begin
                             CurrPage.Editable := false;

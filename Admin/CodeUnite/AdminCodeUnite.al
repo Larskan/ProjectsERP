@@ -1,6 +1,8 @@
 //Open Page with Insert
 codeunit 50121 AdminTaskCode
 {
+    //Opens TaskPageCard and sets record on page to new task record depending on ProjectID
+    //Params: No = ProjectID
     procedure TaskCardPage(var No: Integer)
     var
         projectId: Integer;
@@ -15,15 +17,20 @@ codeunit 50121 AdminTaskCode
         taskCard.Run();
     end;
 
+    //Selects task and opens its card page
+    //Only select 1
     procedure SelectTask(var Task: Record TasksTable)
     var
         taskPage: page TaskPageCard;
         countAmount: Integer;
     begin
+        //Checks if the task exists
         if task.FindSet() then
+            //Loop, adds increment for each record
             repeat
                 countAmount += 1;
             until task.Next() = 0;
+        //1 means only 1 record, so select that record
         if countAmount = 1 then begin
             Task.FindFirst();
             taskPage.SetRecord(Task);
@@ -57,6 +64,8 @@ codeunit 50121 AdminTaskCode
         end;
     end;
 
+    //Loop that iterates over each record in table.
+    //If matched, it becomes true and Modify() is called to update record
     procedure MarkTaskDone(var projectId: Integer)
     var
         TaskTable: Record TasksTable;

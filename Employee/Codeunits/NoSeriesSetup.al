@@ -44,6 +44,10 @@ codeunit 50112 NoSeriesEmployee
 
 codeunit 50117 EmpToTask
 {
+    //Params: Ref to EmployeeTable and Ref to a Record of the TaskTable
+    //Return: Boolean
+    //Count number of records in EmployeeTable, if 1 record: set EmpID field in TaskTable to EmpID of EmployeeTable and set empAdded to true
+    //If more than 1 record: Return false without modifying the TaskTable Record
     procedure addEmpToTask(var EmployeeTable: Record EmployeeTable; var TasksTable: Record TasksTable) result: Boolean
     var
         countAmount: Integer;
