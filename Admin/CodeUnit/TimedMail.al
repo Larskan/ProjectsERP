@@ -1,12 +1,14 @@
 codeunit 50125 TimedMail
 {
     TableNo = Projects;
-    procedure SendMails(var projectID: Integer)
+    procedure SendMails()
 
     var
         Projects: Record Projects;
+        TempEmailItem: Record "Email Item" temporary;
+        BodyText: Text;
     begin
-        Message('');
+
     end;
 
 

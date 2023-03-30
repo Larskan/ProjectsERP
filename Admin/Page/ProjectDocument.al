@@ -185,7 +185,7 @@ page 50119 ProjectDocument
                         //ImportCsvFile.CreateInStream(AttachmentInStream);
 
                         EmailMessage.AddAttachment('', '', AttachmentInStream);
-                        Email.Send(emailMessage, "Email Scenario"::"Send Email");
+                        Email.Send(emailMessage, "Email Scenario"::"SendEmails");
                         //ImportCvsfile.Close();
                     end
                     else begin
