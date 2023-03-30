@@ -169,31 +169,32 @@ page 50119 ProjectDocument
                     Email: Codeunit Email;
                     EmailMessage: Codeunit "Email Message";
                     MailTime: Codeunit TimedMail;
-                    AttachmentInStream: InStream;
-                    ImportCvsfile: File;
+                    //AttachmentInStream: InStream;
+                    //ImportCvsfile: File;
+                    Subject: Text;
                     Body: Text;
-                    MailMessage: Text;
+
                     Receiver: Text;
+                    countAmount: Integer;
+                    projectID: Integer; //code vatr for ID
+                    mailCount: Integer; //number of sent emails
+                    MailCountText: Text[50]; //hold format result
                 begin
-                    if ProjectTable.timeUsed > ProjectTable.TotalTime then begin
-                        Receiver := 'heinotestmail@gmail.com';
-                        Body := 'The projects that went over deadline time';
-                        Message(ProjectTable.ProjectName);
-                        EmailMessage.Create(Receiver, Body, MailMessage);
 
-                        //ImportCvsfile.Open()
-                        //ImportCsvFile.CreateInStream(AttachmentInStream);
-
-                        EmailMessage.AddAttachment('', '', AttachmentInStream);
-                        Email.Send(emailMessage, "Email Scenario"::"SendEmails");
-                        //ImportCvsfile.Close();
-                    end
-                    else begin
-                        Message('No projects went over time');
-                    end;
+                    //Goal: If time used is above total time allowed
+                    //Then send mails using codeunit that sorts through Projects
+                    //Send receiver, body and somehow the projects that went over time if any did
+                    projectID := ProjectTable.ProjectID;
+                    mailCount := MailTime.SendMails(projectID);
+                    Body := FORMAT(mailCount, 0, '<0,,.>') + ' mails sent';
+                    Receiver := 'heinotestmail@gmail.com';
+                    Subject := 'Hej';
+                    //Body := 'The projects that went over deadline time';
+                    EmailMessage.Create(Receiver, Body, Subject);
+                    Email.Send(emailMessage, "Email Scenario"::"SendEmails");
+                end
 
 
-                end;
             }
         }
     }
