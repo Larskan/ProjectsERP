@@ -169,8 +169,24 @@ page 50119 ProjectDocument
                 begin
                     MailTime.SendProjectEmails();
                 end;
+            }
 
-
+            action(test)
+            {
+                Caption = 'test';
+                ApplicationArea = all;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    task: Record TasksTable;
+                begin
+                    if task.FindSet() then
+                        repeat
+                            task.TotalTimeUsed := 50;
+                        until task.Next() = 0;
+                end;
             }
         }
     }
