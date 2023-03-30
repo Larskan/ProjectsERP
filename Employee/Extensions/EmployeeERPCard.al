@@ -76,9 +76,9 @@ page 50117 EmployeeERPCard
 
                 trigger OnAction()
                 var
-                    SeriesSetup: Codeunit 50111;
+                    SeriesSetup: Codeunit 50112;
                 begin
-                    SeriesSetup.CreateNoSeries();
+                    SeriesSetup.CreateEmployeeNoSeries();
                 end;
             }
 
