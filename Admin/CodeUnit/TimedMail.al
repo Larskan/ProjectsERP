@@ -8,9 +8,9 @@ codeunit 50125 TimedMail
         EmailMessage: Codeunit "Email Message";
         Subject: Text;
         Body: Text;
-        Reciver: Text;
+        Receiver: Text;
     begin
-        Reciver := 'rogengell@hotmail.com';
+        Receiver := 'rogengell@hotmail.com, lars16n6@easv365.dk';
 
         Subject := 'Project Over Deadline';
 
@@ -24,7 +24,7 @@ codeunit 50125 TimedMail
                 end;
             until ProjectTable.Next() = 0;
 
-        EmailMessage.Create(Reciver, Subject, Body);
+        EmailMessage.Create(Receiver, Subject, Body);
         Email.Send(emailMessage, "Email Scenario"::"SendEmails");
 
     end;
