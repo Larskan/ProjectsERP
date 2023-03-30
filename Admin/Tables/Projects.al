@@ -24,7 +24,7 @@ table 50124 Projects
         }
         field(30; timeUsed; Integer)
         {
-            Caption = 'Time used in minitues';
+            Caption = 'Time used in hours';
             FieldClass = FlowField;
             CalcFormula = sum(TasksTable.TotalTimeUsed where(ProjectID = field(ProjectID)));
         }

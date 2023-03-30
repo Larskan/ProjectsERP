@@ -186,6 +186,7 @@ page 50119 ProjectDocument
                         repeat
                             task.TotalTimeUsed := 50;
                         until task.Next() = 0;
+                    task.Modify();
                 end;
             }
         }

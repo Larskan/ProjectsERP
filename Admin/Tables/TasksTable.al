@@ -35,12 +35,12 @@ table 50125 TasksTable
         }
         field(30; TotalTimeUsed; Integer)
         {
-            Caption = 'Total Time used in hours';
+            Caption = 'Total Time in hours';
             DataClassification = ToBeClassified;
         }
         field(40; TaskPlanTime; Integer)
         {
-            Caption = 'Task Plan Time in hours';
+            Caption = 'Task Plan Time used in hours';
             DataClassification = ToBeClassified;
         }
         field(50; TaskFinished; Boolean)
