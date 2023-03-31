@@ -11,7 +11,6 @@ codeunit 50125 TimedMail
         Receiver: Text;
         cr: Char;
     begin
-        //rogengell@hotmail.com
         Receiver := 'rogengell@hotmail.com';
 
         Subject := 'Project Over Deadline';
