@@ -122,8 +122,25 @@ codeunit 50130 WebGet
 
 codeunit 50131 webInsert
 {
-    procedure Number(x: Integer; y: Integer) result: Integer
+    procedure UpdateTimeUsed(TaskID: Integer; ProjectID: Integer; TaskName: Text; Description: Text; TimeUsed: Decimal; PlanTime: Decimal) result: Boolean
+    var
+        TaskTable: Record TasksTable;
+        DoneNotDone: Boolean;
     begin
-        result := x + y;
+        DoneNotDone := false;
+        TaskTable.SetFilter(TaskID, Format(TaskID));
+        TaskTable.SetFilter(ProjectID, Format(ProjectID));
+        TaskTable.SetFilter(TaskName, TaskName);
+        TaskTable.SetFilter(Description, Description);
+        TaskTable.SetFilter(TotalTimeUsed, Format(Round(TimeUsed)));
+        TaskTable.SetFilter(TaskPlanTime, Format(PlanTime));
+
+        if TaskTable.FindFirst() then begin
+            TaskTable.FindFirst();
+            TaskTable.TotalTimeUsed := Round(TimeUsed);
+            DoneNotDone := true;
+        end;
+
+        result := DoneNotDone;
     end;
 }
