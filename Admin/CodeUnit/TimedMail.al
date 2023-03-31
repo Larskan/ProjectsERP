@@ -17,7 +17,6 @@ codeunit 50125 TimedMail
 
         Body := '';
 
-        //ProjectTable.Init();
         if ProjectTable.FindSet() then
             repeat
                 Message('repeat');
