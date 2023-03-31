@@ -113,7 +113,9 @@ page 50119 ProjectDocument
                     Task: Record TasksTable;
                 begin
                     if rec.ProjectDone = False then begin
+                        //What you picked in your tasklist in project document: You get that Record you selected
                         CurrPage.TaskPage.Page.SetSelectionFilter(Task);
+                        //Call codeunit
                         OpenEmp.OpenEmpDoc(Task);
                     end
                     else begin
