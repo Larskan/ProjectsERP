@@ -135,6 +135,7 @@ codeunit 50130 WebGet
         JsonTaskObject.Add('Description', TaskTable.Description);
         JsonTaskObject.Add('TaskPlanTime', TaskTable.TaskPlanTime);
         JsonTaskObject.Add('TotalTimeUsed', TaskTable.TotalTimeUsed);
+        JsonTaskObject.Add('TaskStatus', TaskTable.TaskFinished);
         //Add everything to overarching json array(of tasks)
         JsonArrayTask.Add(JsonTaskObject);
     end;
