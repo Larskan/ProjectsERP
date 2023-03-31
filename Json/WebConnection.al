@@ -117,7 +117,7 @@ codeunit 50130 WebGet
             until TaskTable.Next() = 0;
 
         //Add Overarching Json Array(of tasks) to Json Object
-        JsonProjectObject.Add('TaskList', JsonTaskArray);
+        JsonProjectObject.Add('taskList', JsonTaskArray);
         //Add Json object to overarching json array(of everything)
         JsonArrayProjectTaskArray.Add(JsonProjectObject);
     end;
@@ -129,13 +129,13 @@ codeunit 50130 WebGet
         JsonTaskObject: JsonObject;
     begin
         //Add all the necessary info to Json Object
-        JsonTaskObject.Add('TaskID', TaskTable.TaskID);
-        JsonTaskObject.Add('ProjectID', TaskTable.ProjectID);
-        JsonTaskObject.Add('TaskName', TaskTable.TaskName);
-        JsonTaskObject.Add('Description', TaskTable.Description);
-        JsonTaskObject.Add('TaskPlanTime', TaskTable.TaskPlanTime);
-        JsonTaskObject.Add('TotalTimeUsed', TaskTable.TotalTimeUsed);
-        JsonTaskObject.Add('TaskStatus', TaskTable.TaskFinished);
+        JsonTaskObject.Add('taskID', TaskTable.TaskID);
+        JsonTaskObject.Add('projectID', TaskTable.ProjectID);
+        JsonTaskObject.Add('taskName', TaskTable.TaskName);
+        JsonTaskObject.Add('description', TaskTable.Description);
+        JsonTaskObject.Add('taskPlanTime', TaskTable.TaskPlanTime);
+        JsonTaskObject.Add('totalTimeUsed', TaskTable.TotalTimeUsed);
+        JsonTaskObject.Add('taskStatus', TaskTable.TaskFinished);
         //Add everything to overarching json array(of tasks)
         JsonArrayTask.Add(JsonTaskObject);
     end;
@@ -148,7 +148,7 @@ codeunit 50131 webInsert
 {
     //Params: Task Class/Task Table
     //Return: Boolean
-    procedure UpdateTimeUsed(TaskID: Integer; ProjectID: Integer; TaskName: Text; Description: Text; TimeUsed: Decimal; PlanTime: Integer; TaskStatus: Boolean) result: Boolean
+    procedure UpdateTimeUsed(TaskID: Integer; ProjectID: Integer; TaskName: Text; Description: Text; TotalTimeUsed: Decimal; TaskPlanTime: Integer; TaskStatus: Boolean) result: Boolean
     var
         TaskTable: Record TasksTable;
         DoneNotDone: Boolean;
@@ -160,17 +160,19 @@ codeunit 50131 webInsert
         TaskTable.SetFilter(ProjectID, Format(ProjectID));
         TaskTable.SetFilter(TaskName, TaskName);
         TaskTable.SetFilter(Description, Description);
-        TaskTable.SetFilter(TaskPlanTime, Format(PlanTime));
+        TaskTable.SetFilter(TaskPlanTime, Format(TaskPlanTime));
         //Find Table based on findfirst and add timeUsed to Task Table
         if TaskTable.FindFirst() then begin
             TaskTable.FindFirst();
             if TaskTable.TaskFinished = false then begin
-                TaskTable.TotalTimeUsed := Round(TimeUsed);
-                //If Task is not finished and incoming TaskStatus is true, then place TaskTables Status to true
-                if TaskTable.TaskFinished = false and TaskStatus = true then begin
-                    TaskTable.TaskFinished := true;
-                end;
+                TaskTable.FindFirst();
+                TaskTable.TotalTimeUsed := Round(TotalTimeUsed);
                 TaskTable.Modify();
+                //If Task is not finished and incoming TaskStatus is true, then place TaskTables Status to true
+                if (TaskTable.TaskFinished = false) and (TaskStatus = true) then begin
+                    TaskTable.TaskFinished := true;
+                    TaskTable.Modify();
+                end;
                 //If change happened, change boolean to true(to indicate something happened)
                 DoneNotDone := true;
             end;
