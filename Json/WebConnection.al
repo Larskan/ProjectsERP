@@ -43,24 +43,31 @@ codeunit 50130 WebGet
         ProjectId: Integer;
         Json: JsonArray;
     begin
+        //Filters TaskTable based on Employee ID
         TaskTable.SetFilter(EmpID, Format(empId));
+
 
         if TaskTable.FindSet() then
             repeat
+                //Find all Project IDs from TaskTable with filtered Employee ID
                 ProjectListIDTemp.Add(TaskTable.ProjectID);
             until TaskTable.Next() = 0;
 
+        //Removes all duplicates
         foreach ProjectId IN ProjectListIDTemp do begin
             if not ProjectListID.Contains(ProjectId) then begin
                 ProjectListID.Add(ProjectId);
             end;
         end;
-
+        //Call method to create Json Array
         Json := JsonProjectTask(ProjectListID, empId);
+        //Convert Json Array to "sendable" text
         json.WriteTo(result)
     end;
 
 
+    //Params: List of Project IDs and Employee ID
+    //Returns: Json Array
     local procedure JsonProjectTask(ProjectList: List of [Integer]; empId: Integer) result: JsonArray
     var
         TaskTable: Record TasksTable;
@@ -69,7 +76,9 @@ codeunit 50130 WebGet
         TaskId: Integer;
         JsonArrayProjectTask: JsonArray;
     begin
+        //Iterate the project list with the IDs
         foreach ProjectId IN ProjectList do begin
+            //Filter Project Table
             ProjectTabel.SetFilter(ProjectID, Format(ProjectId));
 
             ProjectTabel.FindFirst();
