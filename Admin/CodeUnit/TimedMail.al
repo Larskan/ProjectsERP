@@ -17,7 +17,7 @@ codeunit 50125 TimedMail
 
         Body := '';
 
-        cr := 13;
+        cr := 13; //Line shift
 
         if ProjectTable.FindSet() then
             repeat
