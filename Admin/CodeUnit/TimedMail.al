@@ -22,7 +22,7 @@ codeunit 50125 TimedMail
         if ProjectTable.FindSet() then
             repeat
                 ProjectTable.CalcFields(TotalTime, timeUsed);
-                if ProjectTable.timeUsed > ProjectTable.TotalTime then begin
+                if (ProjectTable.timeUsed > ProjectTable.TotalTime) and (ProjectTable.ProjectDone = false) then begin
                     Body += 'Project Name: ' + ProjectTable.ProjectName + Format(cr);
                     Body += 'Total Time Given: ' + Format(ProjectTable.TotalTime) + Format(cr);
                     Body += 'Total Time Used' + Format(ProjectTable.timeUsed) + Format(cr);

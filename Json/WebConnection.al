@@ -44,6 +44,7 @@ codeunit 50130 WebGet
         Json: JsonArray;
     begin
         TaskTable.SetFilter(EmpID, Format(empId));
+        TaskTable.SetFilter(TaskFinished, Format(false));
 
         if TaskTable.FindSet() then
             repeat
@@ -63,7 +64,6 @@ codeunit 50130 WebGet
 
     local procedure JsonProjectTask(ProjectList: List of [Integer]; empId: Integer) result: JsonArray
     var
-        TaskTable: Record TasksTable;
         ProjectTabel: Record Projects;
         ProjectId: Integer;
         TaskId: Integer;
@@ -71,28 +71,29 @@ codeunit 50130 WebGet
     begin
         foreach ProjectId IN ProjectList do begin
             ProjectTabel.SetFilter(ProjectID, Format(ProjectId));
+            ProjectTabel.SetFilter(ProjectDone, Format(false));
 
-            ProjectTabel.FindFirst();
-
-            AddProjectToJson(ProjectTabel, TaskTable, empId, JsonArrayProjectTask);
-
+            if ProjectTabel.FindFirst() then begin
+                AddProjectToJson(ProjectTabel, empId, JsonArrayProjectTask);
+            end;
         end;
         result := JsonArrayProjectTask;
     end;
 
 
 
-    local procedure AddProjectToJson(ProjectTable: Record Projects; TaskTable: Record TasksTable; empId: Integer; JsonArrayProjectTaskArray: JsonArray)
+    local procedure AddProjectToJson(ProjectTable: Record Projects; empId: Integer; JsonArrayProjectTaskArray: JsonArray)
     var
+        TaskTable: Record TasksTable;
         JsonProjectObject: JsonObject;
         JsonTaskArray: JsonArray;
     begin
-
         JsonProjectObject.Add('ProjectID', ProjectTable.ProjectID);
         JsonProjectObject.Add('ProjectName', ProjectTable.ProjectName);
 
         TaskTable.SetFilter(EmpID, Format(empId));
         TaskTable.SetFilter(ProjectID, Format(ProjectTable.ProjectID));
+        TaskTable.SetFilter(TaskFinished, Format(false));
         if TaskTable.FindSet() then
             repeat
                 AddTaskToJsonArray(TaskTable, JsonTaskArray);
