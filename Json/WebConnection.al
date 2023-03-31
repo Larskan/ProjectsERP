@@ -164,14 +164,17 @@ codeunit 50131 webInsert
         //Find Table based on findfirst and add timeUsed to Task Table
         if TaskTable.FindFirst() then begin
             TaskTable.FindFirst();
-            TaskTable.TotalTimeUsed := Round(TimeUsed);
-            //If Task is not finished and incoming TaskStatus is true, then place TaskTables Status to true
-            if TaskTable.TaskFinished = false and TaskStatus = true then begin
-                TaskTable.TaskFinished := true;
+            if TaskTable.TaskFinished = false then begin
+                TaskTable.TotalTimeUsed := Round(TimeUsed);
+                //If Task is not finished and incoming TaskStatus is true, then place TaskTables Status to true
+                if TaskTable.TaskFinished = false and TaskStatus = true then begin
+                    TaskTable.TaskFinished := true;
+                end;
+                TaskTable.Modify();
+                //If change happened, change boolean to true(to indicate something happened)
+                DoneNotDone := true;
             end;
-            TaskTable.Modify();
-            //If change happened, change boolean to true(to indicate something happened)
-            DoneNotDone := true;
+
         end;
         //Return: Boolean
         result := DoneNotDone;
