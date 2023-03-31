@@ -78,51 +78,64 @@ codeunit 50130 WebGet
     begin
         //Iterate the project list with the IDs
         foreach ProjectId IN ProjectList do begin
-            //Filter Project Table
+            //Filter Project Table from IDs and if the project has not been completed
             ProjectTabel.SetFilter(ProjectID, Format(ProjectId));
             ProjectTabel.SetFilter(ProjectDone, Format(false));
 
+            //Is there any records for your filters? If yes: call the method for Json Array Creation of Projects
             if ProjectTabel.FindFirst() then begin
                 AddProjectToJson(ProjectTabel, empId, JsonArrayProjectTask);
             end;
         end;
+        //Return Json Array of Project AND Tasks
         result := JsonArrayProjectTask;
     end;
 
 
 
+    //Params: Project Table off of the filtered table, EmployeeID and overarching array
+    //Return: None(technically: Overaching array)
     local procedure AddProjectToJson(ProjectTable: Record Projects; empId: Integer; JsonArrayProjectTaskArray: JsonArray)
     var
         TaskTable: Record TasksTable;
         JsonProjectObject: JsonObject;
         JsonTaskArray: JsonArray;
     begin
+        //Add Project(ID, Name) to json body
         JsonProjectObject.Add('ProjectID', ProjectTable.ProjectID);
         JsonProjectObject.Add('ProjectName', ProjectTable.ProjectName);
 
+        //Filter the Tasks depending on Employee ID, Project ID and if the Task is finished or not
         TaskTable.SetFilter(EmpID, Format(empId));
         TaskTable.SetFilter(ProjectID, Format(ProjectTable.ProjectID));
         TaskTable.SetFilter(TaskFinished, Format(false));
+        //Find the set of all Tasks you got from filter, and iterate through them
         if TaskTable.FindSet() then
             repeat
+                //Call the method to add Task to an overarching Json Array
                 AddTaskToJsonArray(TaskTable, JsonTaskArray);
             until TaskTable.Next() = 0;
 
+        //Add Overarching Json Array(of tasks) to Json Object
         JsonProjectObject.Add('TaskList', JsonTaskArray);
-
+        //Add Json object to overarching json array(of everything)
         JsonArrayProjectTaskArray.Add(JsonProjectObject);
     end;
 
+    //Params: TaskTable from filter and the overarching json array(of tasks)
+    //Return: None(Technically: Overarching Array(of tasks))
     local procedure AddTaskToJsonArray(TaskTable: Record TasksTable; JsonArrayTask: JsonArray)
     var
         JsonTaskObject: JsonObject;
     begin
+        //Add all the necessary info to Json Object
         JsonTaskObject.Add('TaskID', TaskTable.TaskID);
         JsonTaskObject.Add('ProjectID', TaskTable.ProjectID);
         JsonTaskObject.Add('TaskName', TaskTable.TaskName);
         JsonTaskObject.Add('Description', TaskTable.Description);
         JsonTaskObject.Add('TaskPlanTime', TaskTable.TaskPlanTime);
         JsonTaskObject.Add('TotalTimeUsed', TaskTable.TotalTimeUsed);
+        //Add everything to overarching json array(of tasks)
         JsonArrayTask.Add(JsonTaskObject);
     end;
 
@@ -132,25 +145,30 @@ codeunit 50130 WebGet
 
 codeunit 50131 webInsert
 {
+    //Params: Task Class/Task Table
+    //Return: Boolean
     procedure UpdateTimeUsed(TaskID: Integer; ProjectID: Integer; TaskName: Text; Description: Text; TimeUsed: Decimal; PlanTime: Decimal) result: Boolean
     var
         TaskTable: Record TasksTable;
         DoneNotDone: Boolean;
     begin
+        //Set Boolean to False, incase nothing happens
         DoneNotDone := false;
+        //Filter all the data
         TaskTable.SetFilter(TaskID, Format(TaskID));
         TaskTable.SetFilter(ProjectID, Format(ProjectID));
         TaskTable.SetFilter(TaskName, TaskName);
         TaskTable.SetFilter(Description, Description);
-        TaskTable.SetFilter(TotalTimeUsed, Format(Round(TimeUsed)));
         TaskTable.SetFilter(TaskPlanTime, Format(PlanTime));
-
+        //Find Table based on findfirst and add timeUsed to Task Table
         if TaskTable.FindFirst() then begin
             TaskTable.FindFirst();
             TaskTable.TotalTimeUsed := Round(TimeUsed);
+            TaskTable.Modify();
+            //If change happened, change boolean to true(to indicate something happened)
             DoneNotDone := true;
         end;
-
+        //Return: Boolean
         result := DoneNotDone;
     end;
 }
