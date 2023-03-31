@@ -20,7 +20,6 @@ codeunit 50125 TimedMail
 
         cr := 13;
 
-        //ProjectTable.Init();
         if ProjectTable.FindSet() then
             repeat
                 ProjectTable.CalcFields(TotalTime, timeUsed);

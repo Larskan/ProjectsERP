@@ -29,9 +29,6 @@ Req: Each night:
 - receiver is controlled by email scenario
 
 features and Time Estimate: 114 or 38h
-4) Employee can see their accessed projects with tasks with time registrations - 2H
-5) See hours worked for each individual consultant in the Project Administration, refresh button, OnOpen(), report(search) - 7.5H(Report), 2.5H(Uden report)
-6) scheduled job to run validation and mail list - 6H
 7) Admin can see which employee is doing which task(flag, igang: true, pause: false) - 2H
 
 - DONE
@@ -39,6 +36,9 @@ features and Time Estimate: 114 or 38h
 1) No. Series(Employee, Project, Tasks, the IDs) - 2.5H
 2) Setup Tables, check ER, REMEMBER KEYS - 2.5H
 3) Setup Admins Page with all his settings(Create Project, assign users, close projects, create tasks+test) - 10H
+4) Employee can see their accessed projects with tasks with time registrations - 2H
+5) See hours worked for each individual consultant in the Project Administration, refresh button, OnOpen(), report(search) - 7.5H(Report), 2.5H(Uden report)
+6) scheduled job to run validation and mail list - 6H
 ---
 a) Setup the Views on MAUI
 b) Setup MVVM without function, some test: LoginView, UserView, ProjectView, TaskView has time - 2H
