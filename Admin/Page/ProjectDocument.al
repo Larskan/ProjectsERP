@@ -171,9 +171,9 @@ page 50119 ProjectDocument
                 end;
             }
 
-            action(test)
+            action(Give100TimeUsed)
             {
-                Caption = 'test';
+                Caption = 'Give 100 TimeUsed';
                 ApplicationArea = all;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -184,9 +184,9 @@ page 50119 ProjectDocument
                 begin
                     if task.FindSet() then
                         repeat
-                            task.TotalTimeUsed := 50;
+                            task.TotalTimeUsed := 100;
+                            task.Modify();
                         until task.Next() = 0;
-                    task.Modify();
                 end;
             }
         }
