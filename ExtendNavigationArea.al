@@ -5,28 +5,9 @@ pageextension 50130 ExtendNavigationArea extends "Order Processor Role Center"
     {
         addlast(sections)
         {
-            group("ProjectsERP")
+            group("ERP Admin")
             {
-                action("Employee Card")
-                {
-                    RunObject = page "Employee Card";
-                    ApplicationArea = All;
-                }
-                action("Employee ERP Card")
-                {
-                    RunObject = page EmployeeERPCard;
-                    ApplicationArea = All;
-                }
-                action("No. Series")
-                {
-                    RunObject = page "No. Series";
-                    ApplicationArea = All;
-                }
-
-            }
-            group("ProjectsERPAdmin")
-            {
-                action("ProjectDecument")
+                action("Project Document")
                 {
                     RunObject = page ProjectDocument;
                     ApplicationArea = All;
@@ -39,6 +20,11 @@ pageextension 50130 ExtendNavigationArea extends "Order Processor Role Center"
                 action("Project")
                 {
                     RunObject = page ProjectPage;
+                    ApplicationArea = All;
+                }
+                action("Employee Card for ERP")
+                {
+                    RunObject = page EmployeeERPCard;
                     ApplicationArea = All;
                 }
             }
