@@ -1,6 +1,7 @@
 codeunit 50125 TimedMail
 {
 
+    //Has a job queue inside Business Central under "Job Queue Entries" - Remember to disable when done with project
     procedure SendProjectEmails()
     var
         ProjectTable: Record Projects;
