@@ -9,29 +9,28 @@ codeunit 50125 TimedMail
         Subject: Text;
         Body: Text;
         Receiver: Text;
+        cr: Char;
     begin
         //rogengell@hotmail.com
-        Receiver := 'lars16n6@easv365.dk';
+        Receiver := 'rogengell@hotmail.com';
 
         Subject := 'Project Over Deadline';
 
         Body := '';
 
+        cr := 13;
+
         //ProjectTable.Init();
         if ProjectTable.FindSet() then
             repeat
-                Message('repeat');
                 ProjectTable.CalcFields(TotalTime, timeUsed);
                 if ProjectTable.timeUsed > ProjectTable.TotalTime then begin
-                    Body += ProjectTable.ProjectName + '\n';
-                    Body += Format(ProjectTable.TotalTime) + '\n';
-                    Body += Format(ProjectTable.timeUsed) + '\n';
-                    Body += '\n';
-                    Message('Time difference');
+                    Body += 'Project Name: ' + ProjectTable.ProjectName + Format(cr);
+                    Body += 'Total Time Given: ' + Format(ProjectTable.TotalTime) + Format(cr);
+                    Body += 'Total Time Used' + Format(ProjectTable.timeUsed) + Format(cr);
+                    Body += Format(cr);
                 end;
             until ProjectTable.Next() = 0;
-
-        Message(Body);
 
         if not (Body = '') then begin
             EmailMessage.Create(Receiver, Subject, Body);
